@@ -6,17 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <form action="./index.php" method="POST">
+    <form class="form_bmi" action="./index.php" method="POST">
         <label for="height">Height:</label><br>
-        <input type="text" id="height" name="height" placeholder="Height in meters"><br>
+        <input class="client_data" type="text" id="height" name="height" placeholder="Height in meters"><br>
 
         <label for="weight">Weight:</label><br>
-        <input type="text" id="weight" name="weight" placeholder="Weight in kilograms"><br>
+        <input class="client_data" type="text" id="weight" name="weight" placeholder="Weight in kilograms"><br>
 
-        <input type="submit" value="Calculate BMI"><br>
+        <input class="button" type="submit" value="Calculate BMI"><br>
     </form>
 
     <?php
@@ -31,15 +32,13 @@
     if (empty($height) || empty($weight)) {
         return '';
     } else if ($BMI < 18.5) {
-        print('Your BMI: ' . $BMI . '. You\'re in the underweight range.');
-    } else if ($BMI >= 18.5 && $BMI < 25) {
-        print('Your BMI: ' . $BMI . '. You\'re in the healthy weight range.');
-    } else if ($BMI >= 25 && $BMI < 30) {
-        print('Your BMI: ' . $BMI . '. You\'re in the overweight range.');
-    } else if ($BMI >= 30) {
-        print('Your BMI: ' . $BMI . '. You\'re in the obese range.');
+        echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the underweight range.")</script>';
+    } else if ($BMI < 25) {
+        echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the healthy weight range.")</script>';
+    } else if ($BMI < 30) {
+        echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the overweight range.")</script>';
     } else {
-        print('Your BMI: ' . $BMI);
+        echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the obese range.")</script>';
     }
     ?>
 </body>

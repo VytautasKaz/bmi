@@ -1,0 +1,27 @@
+body {
+  display: grid;
+  grid-template-columns: 1fr 1100px 1fr;
+  padding: 100px;
+}
+
+body > .form_bmi {
+  margin: 0 auto;
+  grid-column: 2/3;
+  padding: 50px;
+  width: 300px;
+}
+
+label {
+  font-size: 17px;
+}
+
+.client_data {
+  width: 100%;
+  margin: 5px 0 10px 0;
+}
+
+.button {
+  width: 100%;
+  margin: 20px auto;
+  padding: 0 20px;
+}
