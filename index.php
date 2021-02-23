@@ -23,8 +23,8 @@
     <div class="php">
         <?php
         error_reporting(E_ERROR | E_PARSE);
-        $height = $_REQUEST['height'];
-        $weight = $_REQUEST['weight'];
+        $height = $_POST['height'];
+        $weight = $_POST['weight'];
 
         $BMI = $weight / pow($height, 2);
 
