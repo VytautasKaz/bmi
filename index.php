@@ -33,16 +33,16 @@
         if (empty($height) || empty($weight)) {
             return '';
         } else if ($BMI < 18.5) {
-            echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the underweight range.")</script>';
+            echo '<p style="text-align: center">Your BMI: ' . $BMI . '. You\'re in the underweight range, get something to eat.</p>';
             print("<img src=\"./img/underweight.gif\" alt=\"underweight\">");
         } else if ($BMI < 25) {
-            echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the healthy weight range.")</script>';
+            echo '<p style="text-align: center">Your BMI: ' . $BMI . '. You\'re in the healthy weight range, keep it going.</p>';
             print("<img src=\"./img/healthy.gif\" alt=\"healthy\">");
         } else if ($BMI < 30) {
-            echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the overweight range.")</script>';
+            echo '<p style="text-align: center">Your BMI: ' . $BMI . '. You\'re in the overweight range.</p>';
             print("<img src=\"./img/overweight.gif\" alt=\"overweight\">");
         } else {
-            echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the obese range.")</script>';
+            echo '<p style="text-align: center">Your BMI: ' . $BMI . '. You\'re in the obese range.</p>';
             print("<img src=\"./img/obese.gif\" alt=\"obese\">");
         }
         ?>
