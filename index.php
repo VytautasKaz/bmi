@@ -20,27 +20,33 @@
         <input class="button" type="submit" value="Calculate BMI"><br>
     </form>
 
-    <?php
-    error_reporting(E_ERROR | E_PARSE);
-    $height = $_REQUEST['height'];
-    $weight = $_REQUEST['weight'];
+    <div class="php">
+        <?php
+        error_reporting(E_ERROR | E_PARSE);
+        $height = $_REQUEST['height'];
+        $weight = $_REQUEST['weight'];
 
-    $BMI = $weight / pow($height, 2);
+        $BMI = $weight / pow($height, 2);
 
-    $BMI = number_format($BMI, 2);
+        $BMI = number_format($BMI, 2);
 
-    if (empty($height) || empty($weight)) {
-        return '';
-    } else if ($BMI < 18.5) {
-        echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the underweight range.")</script>';
-    } else if ($BMI < 25) {
-        echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the healthy weight range.")</script>';
-    } else if ($BMI < 30) {
-        echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the overweight range.")</script>';
-    } else {
-        echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the obese range.")</script>';
-    }
-    ?>
+        if (empty($height) || empty($weight)) {
+            return '';
+        } else if ($BMI < 18.5) {
+            echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the underweight range.")</script>';
+            print("<img src=\"./img/underweight.gif\" alt=\"underweight\">");
+        } else if ($BMI < 25) {
+            echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the healthy weight range.")</script>';
+            print("<img src=\"./img/healthy.gif\" alt=\"healthy\">");
+        } else if ($BMI < 30) {
+            echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the overweight range.")</script>';
+            print("<img src=\"./img/overweight.gif\" alt=\"overweight\">");
+        } else {
+            echo '<script>alert("Your BMI: ' . $BMI . '. You\'re in the obese range.")</script>';
+            print("<img src=\"./img/obese.gif\" alt=\"obese\">");
+        }
+        ?>
+    </div>
 </body>
 
 </html>
