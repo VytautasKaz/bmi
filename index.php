@@ -12,38 +12,38 @@
 <body>
     <form class="form_bmi" action="./index.php" method="POST">
         <label for="height">Height:</label><br>
-        <input class="client_data" type="text" id="height" name="height" placeholder="Height in meters"><br>
+        <input class="client_data" type="text" id="height" name="height" placeholder="Height in meters, eg. 1.8"><br>
 
         <label for="weight">Weight:</label><br>
-        <input class="client_data" type="text" id="weight" name="weight" placeholder="Weight in kilograms"><br>
+        <input class="client_data" type="text" id="weight" name="weight" placeholder="Weight in kilograms, eg. 70"><br>
 
         <input class="button" type="submit" value="Calculate BMI"><br>
     </form>
 
     <div class="php">
         <?php
-        error_reporting(E_ERROR | E_PARSE);
         $height = $_POST['height'];
         $weight = $_POST['weight'];
 
-        $BMI = $weight / pow($height, 2);
+        if (isset($height) && isset($weight)) {
 
-        $BMI = number_format($BMI, 2);
+            $BMI = $weight / pow($height, 2);
 
-        if (empty($height) || empty($weight)) {
-            return '';
-        } else if ($BMI < 18.5) {
-            echo '<p style="text-align: center">Your BMI: ' . $BMI . '. You\'re in the underweight range, get something to eat.</p>';
-            print("<img src=\"./img/underweight.gif\" alt=\"underweight\">");
-        } else if ($BMI < 25) {
-            echo '<p style="text-align: center">Your BMI: ' . $BMI . '. You\'re in the healthy weight range, keep it going.</p>';
-            print("<img src=\"./img/healthy.gif\" alt=\"healthy\">");
-        } else if ($BMI < 30) {
-            echo '<p style="text-align: center">Your BMI: ' . $BMI . '. You\'re in the overweight range.</p>';
-            print("<img src=\"./img/overweight.gif\" alt=\"overweight\">");
-        } else {
-            echo '<p style="text-align: center">Your BMI: ' . $BMI . '. You\'re in the obese range.</p>';
-            print("<img src=\"./img/obese.gif\" alt=\"obese\">");
+            $BMI = number_format($BMI, 2);
+
+            if ($BMI < 18.5) {
+                echo '<p style="text-align: center">Your BMI: ' . $BMI . '. You\'re in the underweight range, get something to eat.</p>';
+                print("<img src=\"./img/underweight.gif\" alt=\"underweight\">");
+            } else if ($BMI < 25) {
+                echo '<p style="text-align: center">Your BMI: ' . $BMI . '. You\'re in the healthy weight range, keep it going.</p>';
+                print("<img src=\"./img/healthy.gif\" alt=\"healthy\">");
+            } else if ($BMI < 30) {
+                echo '<p style="text-align: center">Your BMI: ' . $BMI . '. You\'re in the overweight range.</p>';
+                print("<img src=\"./img/overweight.gif\" alt=\"overweight\">");
+            } else {
+                echo '<p style="text-align: center">Your BMI: ' . $BMI . '. You\'re in the obese range.</p>';
+                print("<img src=\"./img/obese.gif\" alt=\"obese\">");
+            }
         }
         ?>
     </div>
