@@ -22,16 +22,32 @@
 
     <div class="php">
         <?php
+
+        error_reporting(E_ERROR | E_PARSE);
+
         $height = $_POST['height'];
         $weight = $_POST['weight'];
 
         if (isset($height) && isset($weight)) {
 
+            if ($weight === '0' || $height === '0' || empty($weight) || empty($height)) {
+                echo 'Your weight and/or height cannot be 0 or empty.<br>';
+            }
+            if (!isset($height)) {
+                echo 'Height field cannot be empty';
+            }
+            if (!isset($weight)) {
+                echo 'Weight field cannot be empty';
+            }
+
             $BMI = $weight / pow($height, 2);
 
             $BMI = number_format($BMI, 2);
 
-            if ($BMI < 18.5) {
+
+            if ($BMI <= 0) {
+                echo 'Height and weight inputs have to be positive numbers.';
+            } else if ($BMI < 18.5) {
                 echo '<p style="text-align: center">Your BMI: ' . $BMI . '. You\'re in the underweight range, get something to eat.</p>';
                 print("<img src=\"./img/underweight.gif\" alt=\"underweight\">");
             } else if ($BMI < 25) {
