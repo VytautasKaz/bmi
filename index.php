@@ -12,10 +12,10 @@
 <body>
     <form class="form_bmi" action="./index.php" method="POST">
         <label for="height">Height:</label><br>
-        <input class="client_data" type="text" id="height" name="height" placeholder="Height in meters, eg. 1.8"><br>
+        <input class="client_data" type="text" id="height" name="height" placeholder="Height in meters, e.g. 1.8"><br>
 
         <label for="weight">Weight:</label><br>
-        <input class="client_data" type="text" id="weight" name="weight" placeholder="Weight in kilograms, eg. 70"><br>
+        <input class="client_data" type="text" id="weight" name="weight" placeholder="Weight in kilograms, e.g. 70"><br>
 
         <input class="button" type="submit" value="Calculate BMI"><br>
     </form>
@@ -31,7 +31,7 @@
         if (isset($height) && isset($weight)) {
 
             if ($weight === '0' || $height === '0' || empty($weight) || empty($height)) {
-                echo 'Your weight and/or height cannot be 0 or empty.<br>';
+                echo 'Your weight and/or height input cannot be 0 or empty.<br>';
             }
             if (!isset($height)) {
                 echo 'Height field cannot be empty';
